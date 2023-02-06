@@ -1,0 +1,22 @@
+.result {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem;
+  gap: 1rem;
+  background-color: var(--mint-green);
+}
+
+.result * {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.graph-container *, .graph-container {
+  max-width: 100vw;
+}
+

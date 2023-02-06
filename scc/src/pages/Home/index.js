@@ -9,7 +9,7 @@ export default function Home() {
     <div className='home' >
       <h1>Menor Caminho</h1>
       <p>Este projeto calcula o menor caminho entre dois nós num grafo usando abordagem Bellman-Ford</p>
-      <label>Digite o número de nós do grafo a ser gerado</label>
+      <label>Digite o número de nós do grafo a ser gerado:</label>
       <input value={ numNodes } onChange={ (e) => setNumNodes(e.target.value) } placeholder='Número de nós do grafo' />
       <Link
         to='/result'

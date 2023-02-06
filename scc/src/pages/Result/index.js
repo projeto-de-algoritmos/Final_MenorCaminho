@@ -2,7 +2,7 @@ import './styles.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import Graph from 'react-graph-vis';
-import { generateGraph } from '../../utils/graph';
+import { generateGraph, shortestPath } from '../../utils/graph';
 
 export default function Result() {
   const location = useLocation();
@@ -70,23 +70,40 @@ export default function Result() {
   const [graph, setGraph] = useState({ edges: buildEdges(), nodes: buildNodes() })
 
   useEffect(() => {
+    if(path.start && path.end) {
+      setPath({ ...path, path: shortestPath(graph, path.start, path.end) })
+    }
+
     setGraph({
       ...graph, nodes: graph.nodes.reduce((acc, curr) => {
         if(curr.id === path.start) {
-          return [...acc, { ...curr, color: '#84C3BE' }]
+          return [...acc, { ...curr, color: '#111111' }]
         }
+        
         if(curr.id === path.end) {
-          return [...acc, { ...curr, color: '#84C3BE' }]
+          return [...acc, { ...curr, color: '#111111' }]
         }
-
+        
         return [...acc, curr]
       }, [])
     })
   }, [path.start, path.end])
 
+  useEffect(() => {
+    setGraph({
+      ...graph, nodes: graph.nodes.reduce((acc, curr) => {
+        if(path.path?.some((item) => item === curr.id))
+        {
+          return [...acc, { ...curr, color: '#E07A5F' }]
+        }
+
+        return [...acc, curr]
+      }, [])
+    })
+  }, [path.path])
+
   return (
     <div className='result' >
-      <h1>{ numNodes }</h1>
       <p>Clique no nó inicial e em seguida no nó final e veja o menor caminho se destacar no grafo</p>
       <Graph 
         key={ Math.random() }

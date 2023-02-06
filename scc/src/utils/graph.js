@@ -19,6 +19,28 @@ export function generateGraph(numNodes) {
     return adj;
 }
 
-export function shortestPath(graph, startNode, endNode) {
-    return [1, 2, 3, 4, 5];
+export function shortestPath(graph, start, end) {
+    const distances = new Array(graph.nodes.length).fill(Infinity);
+    distances[start] = 0;
+    const predecessors = new Array(graph.nodes.length).fill(null);
+
+    for (let i = 0; i < graph.nodes.length - 1; i++) {
+        for (const edge of graph.edges) {
+            const from = edge.from;
+            const to = edge.to;
+            if (distances[from] + 1 < distances[to]) {
+                distances[to] = distances[from] + 1;
+                predecessors[to] = from;
+            }
+        }
+    }
+
+    const path = [];
+    let node = end;
+    while (node !== null) {
+        path.unshift(node);
+        node = predecessors[node];
+    }
+
+    return path;
 }

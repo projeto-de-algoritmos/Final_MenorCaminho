@@ -1,45 +1,32 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Menor Caminho 
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 42<br>
+**Conteúdo da Disciplina**: Trabalho Final<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0045269  |  Sara Campos |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Esse projeto tem como objetivo encontrar o menor caminho num grafo usando abordagem Bellman-Ford.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![tela1](./public/tela1.png)
+![tela2](./public/tela2.png)
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: JavaScript<br>
+**Framework**: React<br>
+
+Para rodar o projeto é necessário após a clonagem do repositório e dentro da raiz do projeto rodar os seguintes comandos: 
+
+    cd scc
+    npm install
+    npm start
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+Após acessar o projeto no browser, o usuário irá encontrar uma página com algumas informações e um input para o número de nós do grafo que ele deseja gerar. Em seguida, é encaminhado para a página de resultado onde ele poderá visualizar o grafo e após selecionar dois nós, poderá ver os nós do menor caminho se destacarem.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
-
-
-
-
+## Vídeo 
+O vídeo explicando o projeto pode ser acessado através da pasta assets na raiz do projeto após a clonagem do repositório.

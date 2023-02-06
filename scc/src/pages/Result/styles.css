@@ -1,6 +1,6 @@
 .result {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -12,7 +12,7 @@
 
 .result * {
   width: 90%;
-  max-width: 600px;
+  max-width: unset;
   text-align: center;
 }
 

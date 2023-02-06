@@ -1,6 +1,6 @@
 import './styles.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Graph from 'react-graph-vis';
 import { generateGraph } from '../../utils/graph';
 
@@ -8,6 +8,7 @@ export default function Result() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [path, setPath] = useState({ start: null, end: null, path:[] });  
   const numNodes = useMemo(() => {
     if(!location?.state?.numNodes) navigate('/')
     return location.state.numNodes 
@@ -33,8 +34,16 @@ export default function Result() {
   };
 
   const events = {
-    selectNode: ({ nodes }) => {},
-    doubleClick: () => {},
+    selectNode: ({ nodes }) => {
+      if(!path.start) {
+        setPath({ ...path, start: nodes[0] });
+        return 
+      }
+      if(!path.end && path.start !== nodes[0]) {
+        setPath({ ...path, end: nodes[0] });
+        return 
+      }
+    }
   };
 
   const options = {
@@ -59,6 +68,21 @@ export default function Result() {
   };
 
   const [graph, setGraph] = useState({ edges: buildEdges(), nodes: buildNodes() })
+
+  useEffect(() => {
+    setGraph({
+      ...graph, nodes: graph.nodes.reduce((acc, curr) => {
+        if(curr.id === path.start) {
+          return [...acc, { ...curr, color: '#84C3BE' }]
+        }
+        if(curr.id === path.end) {
+          return [...acc, { ...curr, color: '#84C3BE' }]
+        }
+
+        return [...acc, curr]
+      }, [])
+    })
+  }, [path.start, path.end])
 
   return (
     <div className='result' >

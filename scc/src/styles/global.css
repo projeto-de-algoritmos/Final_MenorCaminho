@@ -1,0 +1,27 @@
+:root {
+  --light-blue: #6F9AB6;
+  --coral-pink: #E07A5F;
+  --ocean-blue: #84C3BE;
+  --pastel-yellow: #FFCF48;
+  --lavender-purple: #9B7EAD;
+  --mint-green: #B7D078;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none !important;
+  font-family: 'Poppins', sans-serif;
+  color: var(--deep-yellow);
+}
+
+html,
+body,
+#root {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--black);
+}

@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem;
+  gap: 1rem;
+  background-color: var(--mint-green);
+}
+
+.home * {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.home a {
+  background-color: whitesmoke;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+}
